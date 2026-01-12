@@ -1,6 +1,6 @@
 {
     
-    "name": "ycode/phpmvc",
+    "name": "phpmvc",
     "autoload": {
         "psr-4": {
             "App\\": "app/",
