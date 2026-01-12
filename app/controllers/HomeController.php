@@ -38,7 +38,7 @@ class HomeController{
  * @param int $id The ID of the user to retrieve.
  * @return string The rendered view.
  */
-    public function getUser($id): string{
+    public function getUser($id){
         $user = new User();
         $user = $user->getOne($id);
         return View::make('home/user', ['user' => $user]);

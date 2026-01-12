@@ -62,7 +62,7 @@ class User
      *
      * @return array<User> An array of user instances.
      */
-    public function getAll(): array
+    public function getAll()
     {
         return self::data();
     }
@@ -75,7 +75,7 @@ class User
      * @param int $id The ID of the user to retrieve.
      * @return User|null The user instance with the given ID, or null if no user is found.
      */
-    public function getOne($id): ?User
+    public function getOne($id)
     {
         return array_filter(self::data(), function ($item) use ($id) {
             return $item->id == $id;
