@@ -4,14 +4,6 @@ namespace Core;
 
 class View{
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Constructor
- *
- * @param string $view The view to render
- * @param array $params The parameters to pass to the view
- */
-/*******  2a6a1fbe-b9d5-46b7-a564-9caa8e9a395b  *******/
     public function __construct(
         private $view,
         private $params
@@ -19,15 +11,6 @@ class View{
 
     }
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Creates a new View instance.
- *
- * @param string $view The view to render
- * @param array $params The parameters to pass to the view
- * @return static
- */
-/*******  c580705a-94d6-4392-9cfa-7ad1721d29c9  *******/
     public static function make($view, $params = []){
         return new static($view, $params);
         //  static is a keyword that refers to the current class
