@@ -1,0 +1,17 @@
+{
+    
+    "name": "ycode/phpmvc",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ismaillakroune",
+            "email": "lakroune00@gmail.com"
+        }
+    ],
+    "require": {}
+}
