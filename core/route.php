@@ -48,4 +48,49 @@ class Router
 
         return $this;
     }
+     public function resolve($requestUri, $method){
+        $route = explode('?', $requestUri)[0];
+        $action = $this->routes[$method][$route] ?? null;
+        $params = [];
+        
+        if(!$action){
+            foreach($this->routes[$method] as $key => $value){
+                if(str_contains($key, '{')){
+                    $res = explode('{', $key);
+                    if(str_contains($route, $res[0])){
+                        $currentRoute = explode($res[0],$route)[1];
+                        $savedRoute = explode($res[0],$key)[1];
+
+                        if(count(explode('/',$currentRoute)) == count(explode('/',$savedRoute))){
+                            $result = explode('/',$currentRoute);
+                            for($i=0; $i<count($result); $i++){
+                                $params[] = $result[$i];
+                            }
+                            $action = $this->routes[$method][$key];
+                        }
+                    }
+                }
+            }
+            if(count($params) == 0){
+                throw new RouteNotFoundException();
+            }
+        }
+            
+        if(is_callable($action))
+            return call_user_func_array($action, $params);
+
+        if(is_array($action)){
+            [$class, $method] = $action;
+
+            if(class_exists($class)){
+                $class = new $class();
+
+                if(method_exists($class, $method)){
+                    return call_user_func_array([$class, $method], $params);
+                }
+            }
+        }
+
+        throw new RouteNotFoundException();
+    }
 }

@@ -4,6 +4,13 @@ namespace Core;
 
 class View{
 
+ 
+/**
+ * Initializes a new View instance.
+ *
+ * @param string $view The view to render.
+ * @param array $params The parameters to pass to the view.
+ */
     public function __construct(
         private $view,
         private $params
@@ -11,11 +18,26 @@ class View{
 
     }
 
+    /**
+     * Make a new View instance.
+     *
+     * @param string $view The view to render.
+     * @param array $params The parameters to pass to the view.
+     * @return static A new View instance.
+     */
     public static function make($view, $params = []){
         return new static($view, $params);
         //  static is a keyword that refers to the current class
     }
 
+    /**
+     * Renders the view.
+     *
+     * Uses output buffering to capture the rendered view. The view is included
+     * and the parameters are extracted into the current scope using extract().
+     *
+     * @return string The rendered view.
+     */
     public function render(){
         ob_start();
         // extract() is a function that takes an array of variables and makes them available in the current scope
@@ -26,6 +48,13 @@ class View{
 
     }
 
+    /**
+     * Converts the view to a string.
+     *
+     * When the view is converted to a string, it is rendered and the result is returned.
+     *
+     * @return string The rendered view.
+     */
     public function __toString(){
         return $this->render();
     }
