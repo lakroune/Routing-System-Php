@@ -33,10 +33,25 @@ class User
     {
         return [
             new User(1, 'Ahmed', 'ahmed@gmail.com', 'test123'),
-            new User(2, 'test1', 'test1@gmail.com', 'test123'),
-            new User(3, 'test2', 'test2@gmail.com', 'test123'),
-            new User(4, 'test3', 'test3@gmail.com', 'test123'),
-            new User(5, 'test4', 'test4@gmail.com', 'test123')
+            new User(2, 'Sara', 'sara@gmail.com', 'test123'),
+            new User(3, 'Ali', 'ali@gmail.com', 'test123'),
+            new User(4, 'Omar', 'omar@gmail.com', 'test123'),
+            new User(5, 'Khalid', 'khalid@gmail.com', 'test123'),
+            new User(6, 'Hassan', 'hassan@gmail.com', 'test123'),
+            new User(7, 'Nour', 'nour@gmail.com', 'test123'),
+            new User(8, 'Fatima', 'fatima@gmail.com', 'test123'),
+            new User(9, 'Mona', 'mona@gmail.com', 'test123'),
+            new User(10, 'Nadia', 'nadia@gmail.com', 'test123'),
+            new User(11, 'Omar', 'omar@gmail.com', 'test123'),
+            new User(12, 'Khalid', 'khalid@gmail.com', 'test123'),
+            new User(13, 'Hassan', 'hassan@gmail.com', 'test123'),
+            new User(14, 'Nour', 'nour@gmail.com', 'test123'),
+            new User(15, 'Fatima', 'fatima@gmail.com', 'test123'),
+            new User(16, 'Mona', 'mona@gmail.com', 'test123'),
+            new User(17, 'Nadia', 'nadia@gmail.com', 'test123'),
+            new User(18, 'Omar', 'omar@gmail.com', 'test123'),
+            new User(19, 'Khalid', 'khalid@gmail.com', 'test123'),
+            new User(20, 'Hassan', 'hassan@gmail.com', 'test123'),
         ];
     }
 
@@ -47,7 +62,7 @@ class User
      *
      * @return array<User> An array of user instances.
      */
-    public function getAll()
+    public function getAll(): array
     {
         return self::data();
     }
@@ -60,7 +75,7 @@ class User
      * @param int $id The ID of the user to retrieve.
      * @return User|null The user instance with the given ID, or null if no user is found.
      */
-    public function getOne($id)
+    public function getOne($id): ?User
     {
         return array_filter(self::data(), function ($item) use ($id) {
             return $item->id == $id;

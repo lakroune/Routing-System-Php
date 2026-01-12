@@ -15,7 +15,8 @@ $router
     });
 
 try {
-    echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    echo $router->resolve($uri, strtolower($_SERVER['REQUEST_METHOD']));
 } catch (RouteNotFoundException $e) {
     echo $e->getMessage();
 }
