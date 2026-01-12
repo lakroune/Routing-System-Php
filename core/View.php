@@ -2,20 +2,22 @@
 
 namespace Core;
 
-class View{
+class View
+{
+    private $view;
+    private $params;
 
- 
-/**
- * Initializes a new View instance.
- *
- * @param string $view The view to render.
- * @param array $params The parameters to pass to the view.
- */
-    public function __construct(
-        private $view,
-        private $params
-    ){
-
+    
+    /**
+     * Initializes a new View instance.
+     *
+     * @param string $view The view to render.
+     * @param array $params The parameters to pass to the view.
+     */
+    public function __construct($view, $params)
+    {
+        $this->view = $view;
+        $this->params = $params;
     }
 
     /**
@@ -25,9 +27,10 @@ class View{
      * @param array $params The parameters to pass to the view.
      * @return static A new View instance.
      */
-    public static function make($view, $params = []){
+    public static function make($view, $params = [])
+    {
         return new static($view, $params);
-        //  static is a keyword that refers to the current class
+        // new static() is a function that creates a new instance of the class
     }
 
     /**
@@ -38,10 +41,11 @@ class View{
      *
      * @return string The rendered view.
      */
-    public function render(){
+    public function render()
+    {
         ob_start();
         // extract() is a function that takes an array of variables and makes them available in the current scope
-        include __DIR__.'/../app/views/'.$this->view.'.php'; 
+        include __DIR__ . '/../app/views/' . $this->view . '.php';
         // include() is a function that includes a file
         return ob_get_clean();
         // ob_get_clean() is a function that returns the contents of the output buffer
@@ -55,7 +59,8 @@ class View{
      *
      * @return string The rendered view.
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->render();
     }
 }

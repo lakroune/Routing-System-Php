@@ -35,7 +35,8 @@ class User
             new user(1, 'Ismaillakroune', 'lakroune00@gmail', '123456'),
             new user(2, 'anasElghazi', 'anas@gmail', '123456'),
             new user(3, 'mouadGourita', 'mouad@gmail', '123456'),
-            new user(4, 'mohamedHassan', 'mohamed@gmail', '123456')
+            new user(4, 'mohamedHassan', 'mohamed@gmail', '123456'),
+            new user(5, 'Ahmed', 'ahmed@gmail', '123456')
         ];
     }
 
