@@ -8,15 +8,16 @@ class Router
 {
     private $routes = [];
 
+   
     /**
-     * Registers a route with the given method and action.
+     * Registers a route with the given HTTP method, route path, and action.
      *
      * @param string $method The HTTP method to register the route for.
      * @param string $route The route path to register.
-     * @param string $action The action to call when the route is matched.
+     * @param callable|string|array $action The action to call when the route is matched.
      * @return self
      */
-    public function register(string $method, string $route, string $action): self
+    public function register(  $method,   $route,  $action): self
     {
         $this->routes[$method][$route] = $action;
         return $this;
@@ -34,14 +35,15 @@ class Router
         return $this->register('get', $route, $action);
     }
 
+     
     /**
      * Registers a POST route with the given route and action.
      *
      * @param string $route The route path to register.
-     * @param string $action The action to call when the route is matched.
+     * @param callable|string|array $action The action to call when the route is matched.
      * @return self
      */
-    public function post(string $route, string $action)
+    public function post( $route,  $action)
     {
         return $this->register('post', $route, $action);
     }

@@ -1,19 +1,21 @@
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
-use App\Exceptions\RouteNotFoundException;
+require_once __DIR__ . '/vendor/autoload.php';
 
-$router = new Core\Router;
+use App\Exceptions\RouteNotFoundException;
+use Core\Router;
+
+$router = new Router();
 
 $router
-->get('/', [App\Controllers\HomeController::class, 'index'])
-->group('/user', function($group){
-    $group->get('/list', [App\Controllers\HomeController::class, 'getAllUsers']);
-    $group->get('/{id}', [App\Controllers\HomeController::class, 'getUser']);
-});
+    ->get('/', [App\Controllers\HomeController::class, 'index'])
+    ->group('/user', function ($group) {
+        $group->get('/list', [App\Controllers\HomeController::class, 'getAllUsers']);
+        $group->get('/{id}', [App\Controllers\HomeController::class, 'getUser']);
+    });
 
-try{
+try {
     echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
-}catch(RouteNotFoundException $e){
+} catch (RouteNotFoundException $e) {
     echo $e->getMessage();
 }
