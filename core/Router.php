@@ -9,6 +9,17 @@ class Router
     private static array $routes = [];
     private string $prefix = '';
 
+    public function __construct() {}
+    public function get(string $route, $action): self
+    {
+        return $this->register('get', $route, $action);
+    }
+
+
+    public function post(string $route, $action): self
+    {
+        return $this->register('post', $route, $action);
+    }
     public function group(string $prefix): self
     {
         $router = clone $this;
@@ -16,7 +27,7 @@ class Router
         return $router;
     }
 
-    private function register(string $method, string $route, $action): self
+    public function register(string $method, string $route, $action): self
     {
         $method = strtolower($method);
         $fullRoute = rtrim($this->prefix . '/' . ltrim($route, '/'), '/') ?: '/';
@@ -45,7 +56,7 @@ class Router
             $pattern = '#^' . rtrim($pattern, '/') . '$#';
 
             if (preg_match($pattern, $uri, $matches)) {
-                array_shift($matches); // حذف full match
+                array_shift($matches); //  delete first element
                 return $this->dispatch($action, $matches);
             }
         }
