@@ -15,7 +15,7 @@ class HomeController
     public function getAllUsers()
     {
         $userModel = new User();
-        return View::make('view/home/users', ['users' => $userModel->getAll()]);
+        return View::make('home/users', ['users' => $userModel->getAll()]);
     }
 
     public function getUser($id)

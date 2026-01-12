@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Exception;
+
 class View
 {
     private $view;
@@ -22,7 +24,13 @@ class View
     {
         ob_start();
         extract($this->params);
-        include __DIR__ . '/../app/Views/' . $this->view . '.php';
+
+        $file = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $this->view) . '.php';
+
+        if (!file_exists($file)) {
+            throw new Exception("View file not found: $file");
+        }
+        include $file;
         return ob_get_clean();
     }
 
