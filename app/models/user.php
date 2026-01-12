@@ -32,11 +32,11 @@ class User
     private static function data()
     {
         return [
-            new user(1, 'Ismaillakroune', 'lakroune00@gmail', '123456'),
-            new user(2, 'anasElghazi', 'anas@gmail', '123456'),
-            new user(3, 'mouadGourita', 'mouad@gmail', '123456'),
-            new user(4, 'mohamedHassan', 'mohamed@gmail', '123456'),
-            new user(5, 'Ahmed', 'ahmed@gmail', '123456')
+            new User(1, 'Ahmed', 'ahmed@gmail.com', 'test123'),
+            new User(2, 'test1', 'test1@gmail.com', 'test123'),
+            new User(3, 'test2', 'test2@gmail.com', 'test123'),
+            new User(4, 'test3', 'test3@gmail.com', 'test123'),
+            new User(5, 'test4', 'test4@gmail.com', 'test123')
         ];
     }
 

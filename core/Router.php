@@ -65,17 +65,41 @@ class Router
             private Router $router;
             private string $prefix;
 
+    /**
+     * Constructs a new instance of the Router with the given prefix.
+     *
+     * @param Router $router The router to register the routes with.
+     * @param string $prefix The prefix to register the routes with.
+     */
             public function __construct(Router $router, string $prefix)
             {
                 $this->router = $router;
                 $this->prefix = rtrim($prefix, '/');
             }
 
+        /**
+         * Registers a GET route with the given route and action.
+         *
+         * The given route will be prefixed with the group prefix.
+         *
+         * @param string $route The route path to register.
+         * @param callable|string|array $action The action to call when the route is matched.
+         * @return self
+         */
             public function get(string $route, $action)
             {
                 return $this->router->get($this->prefix . '/' . ltrim($route, '/'), $action);
             }
 
+        /**
+         * Registers a POST route with the given route and action.
+         *
+         * The given route will be prefixed with the group prefix.
+         *
+         * @param string $route The route path to register.
+         * @param callable|string|array $action The action to call when the route is matched.
+         * @return self
+         */
             public function post(string $route, $action)
             {
                 return $this->router->post($this->prefix . '/' . ltrim($route, '/'), $action);
