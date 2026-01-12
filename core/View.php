@@ -50,6 +50,16 @@ class View{
 
     }
 
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Returns the rendered view as a string.
+ *
+ * This magic method is used to convert the View object to a string.
+ * It is called when the View object is used in a string context.
+ *
+ * @return string The rendered view as a string.
+ */
+/*******  8ed22820-701e-4607-9f7a-cc5aa0bb9172  *******/
     public function __toString(){
         return $this->render();
     }
