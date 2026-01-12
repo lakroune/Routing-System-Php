@@ -6,6 +6,6 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Hello <?php echo $this->params['name'] ?> from home page</h1>
+    <h1>Hello <?php echo $this->params['message'] ?> from home page</h1>
 </body>
 </html>

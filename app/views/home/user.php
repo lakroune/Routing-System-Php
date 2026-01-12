@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $this->params['user']->name ?></title>
+    <title><?= $this->params['user']->getName() ?></title>
 </head>
 <body>
     <table>
@@ -14,10 +14,10 @@
             <th>Password</th>
         </tr>
         <tr>
-            <td><?= $this->params['user']->id ?></td>
-            <td><?= $this->params['user']->name ?></td>
-            <td><?= $this->params['user']->email ?></td>
-            <td><?= $this->params['user']->password ?></td>
+            <td><?= $this->params['user']->getId() ?></td>
+            <td><?= $this->params['user']->getName() ?></td>
+            <td><?= $this->params['user']->getEmail() ?></td>
+            <td><?= $this->params['user']->getPassword() ?></td>
         </tr>
     </table>
 </body>

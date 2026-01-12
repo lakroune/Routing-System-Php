@@ -9,18 +9,18 @@ class HomeController
 {
     public function index()
     {
-        return View::make('home/index', ['name' => 'John Doe']);
+        return View::make('home/index', ['message' => ' hello , i am home page']);
     }
 
     public function getAllUsers()
     {
-        $userModel = new User();
+        $userModel = new User(0, '', '', '');
         return View::make('home/users', ['users' => $userModel->getAll()]);
     }
 
     public function getUser($id)
     {
-        $userModel = new User();
+        $userModel = new User(0, '', '', '');
         return View::make('home/user', ['user' => $userModel->getOne($id)]);
     }
 

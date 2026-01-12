@@ -17,10 +17,10 @@
         </tr>
         <?php foreach ($this->params['users'] as $value): ?>
             <tr>
-                <td><?= $value->id ?></td>
-                <td><?= $value->name ?></td>
-                <td><?= $value->email ?></td>
-                <td><?= $value->password ?></td>
+                <td><?= $value->getId() ?></td>
+                <td><?= $value->getName() ?></td>
+                <td><?= $value->getEmail() ?></td>
+                <td><?= $value->getPassword() ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

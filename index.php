@@ -18,5 +18,5 @@ try {
     $requestUri = $requestUri ?: '/'; // default page
     echo $router->resolve($requestUri, $_SERVER['REQUEST_METHOD']);
 } catch (RouteNotFoundException $e) {
-    echo "404: Route not found";
+    echo $e->getMessage();
 }
