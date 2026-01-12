@@ -14,7 +14,7 @@ class HomeController
      */
     public function index()
     {
-        return View::make('home/index', ['message' => ' hello , i am home page']);
+        return View::make('home/index', ['message' => 'Hello']);
     }
 
     /**
